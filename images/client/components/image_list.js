@@ -16,7 +16,7 @@ const ImageList = () => {
     });
 
     return (
-        <ul>
+        <ul className="meida-list list-grooup">
             {RenderedImages}
         </ul>
     );
