@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import EmployeeList from './componenets/employee_list';
+
 const App = () => {
     return (
-        <div>Hello there!</div>
+        <div>
+            <EmployeeList />
+        </div>
     );
 };
 
