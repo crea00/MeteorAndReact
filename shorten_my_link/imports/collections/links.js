@@ -1,10 +1,11 @@
 import { Mongo } from 'meteor/mongo';
+import validUrl from 'valid-url';
+import { check, Match } from 'meteor/check';
 
 Meteor.methods({
     'links.insert': function(url) {
-        console.log('attempting to save', url);
+        check(url, Match.Where(url => validUrl.is_uri(url)));
     }
 });
-
 
 export const Links = new Mongo.Collection('links');
