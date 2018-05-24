@@ -20,9 +20,9 @@ Meteor.startup(() => {
                 avatar: image.avatar()
             });
         });
-    }
+    } 
 
-    Meteor.publish('employees', function(){
+    Meteor.publish('employees', function() {
         return Employees.find({}, { limit: 20 });
     });
 });
