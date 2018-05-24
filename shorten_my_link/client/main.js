@@ -5,7 +5,9 @@ import Header from './components/header';
 
 const App = () => {
     return (
-        <Header />
+        <div>
+            <Header />
+        </div>
     );
 };
 
