@@ -13,18 +13,22 @@ Meteor.startup(() => {
 function onRoute(req, res, next) {
   // Take the token out of the url and try to a find a matching link in The Links Collection
   const link = Links.findOne({ token: req.params.token });
-  
-  // If we find a link object, redirect the user to the long URL
 
-  // If we don't find a link object, send the user to our normal React app
-  
+  if (link) {
+    // If we find a link object, redirect the user to the long URL
+    res.writeHead(307, { 'Location': link.url });
+    res.end();
+  } else {
+    // If we don't find a link object, send the user to our normal React app
+    next();
+  }
 }
 
 //    localhost:3000/   NO MATCH
 //    localhost:3000/books/harry_potter   NO MATCH
 //    localhost:3000/abcd   will match!!
 const middleware = ConnectRoute(function(router) {
-  router.get('/:token', (req) => console.log(req));
+  router.get('/:token', onRoute);
 });
 
 WebApp.connectHandlers.use(middleware);
