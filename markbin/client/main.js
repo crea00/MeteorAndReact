@@ -9,10 +9,12 @@ import BinsList from './components/bins/bins_list';
 import { Bins } from '../import/collections/bins';
 
 // the Key idea to remember is that react router displays different sets of components based on the current url
+// IndexRoute is only visible if the parent does not have any visible children
 const routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <Route path="/bins" component={BinsMain} />
+            <IndexRoute component={BinsList} />
+            <Route path="bins" component={BinsMain} />
         </Route>
     </Router>
 );
@@ -20,3 +22,4 @@ const routes = (
 Meteor.startup(() => {
     ReactDOM.render(routes, document.querySelector('.render-target'));
 });
+  
