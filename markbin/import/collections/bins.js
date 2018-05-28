@@ -9,6 +9,10 @@ Meteor.methods({
             // If we don't use function keyword, it would actually break this.userId
             ownerId: this.userId
         });
+    },
+
+    'bins.remove': function(bin) {
+        return Bins.remove(bin);
     }
 });
 
