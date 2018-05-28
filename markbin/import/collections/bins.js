@@ -13,3 +13,4 @@ Meteor.methods({
 });
 
 export const Bins = new Mongo.Collection('bins');
+ 
