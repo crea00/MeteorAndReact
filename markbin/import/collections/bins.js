@@ -15,8 +15,8 @@ Meteor.methods({
         return Bins.remove(bin);
     },
 
-    'bins.update': function(bin, newContent) {
-        return Bins.update(bin._id, { $set: { content: newContent } });
+    'bins.update': function(bin, content) {
+        return Bins.update(bin._id, { $set: { content } });
     }
 });
 
