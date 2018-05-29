@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/app';
 import BinsMain from './components/bins/bins_main';
 import BinsList from './components/bins/bins_list';
-import { Bins } from '../import/collections/bins';
+import { Bins } from '../imports/collections/bins';
 
 // the Key idea to remember is that react router displays different sets of components based on the current url
 // IndexRoute is only visible if the parent does not have any visible children

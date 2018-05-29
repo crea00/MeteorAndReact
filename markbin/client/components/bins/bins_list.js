@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Bins } from '../../../import/collections/bins';
+import { Bins } from '../../../imports/collections/bins';
 import { Link } from 'react-router';
 
 class BinsList extends Component {
@@ -28,7 +28,6 @@ class BinsList extends Component {
     }
 
     render() {
-        console.log(this.props.bins);
         return (
             <ul className="list-group">
                 {this.renderList()}
@@ -39,6 +38,7 @@ class BinsList extends Component {
 
 export default createContainer(() => {
     Meteor.subscribe('bins');
+    Meteor.subscribe('sharedBins');
 
     return { bins: Bins.find({}).fetch() };
 }, BinsList);

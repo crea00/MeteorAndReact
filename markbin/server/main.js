@@ -1,11 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import { Bins } from '../import/collections/bins';
+import { Bins } from '../imports/collections/bins';
 
 Meteor.startup(() => {
   // code to run on server at startup
   Meteor.publish('bins', function() {
     return Bins.find({ ownerId: this.userId });
-    
   });
 
   Meteor.publish('sharedBins', function() {
@@ -15,7 +14,7 @@ Meteor.startup(() => {
 
     const email = user.emails[0].address;
 
-    return Bins.find({
+    return Bins.find({ 
       sharedWith: { $elemMatch: { $eq: email }}
     });
   });
